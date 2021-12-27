@@ -1,5 +1,5 @@
 # jctpapi-linux
-### 使用[SWIG](http://www.swig.org/)生成用于Java调用上期技术CTP-API的JNI（C++）源码
+### 在Linux环境下使用GCC编译Java调用上期技术CTP-API的JNI（C++）源码
 
 #### 简介
 
@@ -29,10 +29,15 @@
 
 #### 提示
 + 本仓库中提供的JNI(C++)源码来自仓库 [swig-java-ctp](https://github.com/sun0x00/swig-java-ctp)
++ 如果尝试自建空白项目，请参考现存版本文件夹的内容准备文件，注意，需要重命名上上期技术提供的两个.so文件,分别在文件名之前加lib
 + 本仓库中提供的链接库so文件来自[上期技术官网](www.sfit.com.cn)提供的各对应版本的SDK压缩包
 + Windows环境下的编译方法请访问仓库 [jctpapi-msvc](https://github.com/sun0x00/jctpapi-msvc)
 + 本仓库中提供的JNI(C++)源码已经解决CTP结算单乱码问题，具体实现细节请访问仓库 [swig-java-ctp](https://github.com/sun0x00/swig-java-ctp)
-
++ 关于编译后lib文件的使用，在makefile文件中存在如下配置
+   ```
+   LD_RUN_PATH=-Wl,-rpath,/tmp/xyz/redtorch/api/jctp/lib/jctpv6v6v1p1cpx64api/
+   ```
+   在实际使用过程中，编译后的链接库so文件可不安装到系统lib目录，复制到/tmp/xyz/redtorch/api/jctp/lib/jctpv6v6v1p1cpx64api/，可在Java代码中通过绝对路径加载。
 
 
 
